@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "debflix library",
   "exports": {
-    "./schemas": "./dist/schemas/index.js",
-    "./types": "./dist/types/index.js"
+    "./schemas": {
+      "import": "./dist/schemas/index.js",
+      "require": "./dist/schemas/index.js"
+    },
+    "./types": {
+      "import": "./dist/types/index.js",
+      "require": "./dist/types/index.js"
+    }
   },
   "scripts": {
     "build": "tsup"
