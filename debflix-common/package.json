@@ -13,7 +13,11 @@
     }
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "build:schemas": "cd packages/schemas && npm install && npm run build && npm pack",
+    "build:types": "cd packages/types && npm install && npm run build && npm pack",
+    "build:common": "npm run build && npm pack",
+    "build:all": "npm run build:schemas && npm run build:types && npm run build:common"
   },
   "keywords": [],
   "author": "GalYazdi",
