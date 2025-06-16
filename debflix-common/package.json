@@ -2,25 +2,31 @@
   "name": "debflix-common",
   "version": "1.0.0",
   "description": "debflix library",
-  "main": "index.js",
   "exports": {
-    "require": "./dist/index.js",
-    "import": "./dist/index.mjs"
+    "./schemas": {
+      "import": "./dist/schemas/index.js",
+      "require": "./dist/schemas/index.js"
+    },
+    "./types": {
+      "import": "./dist/types/index.js",
+      "require": "./dist/types/index.js"
+    }
   },
   "scripts": {
-    "build": "tsup"
+    "build": "tsup",
+    "build:schemas": "cd packages/schemas && npm install && npm run build && npm pack",
+    "build:types": "cd packages/types && npm install && npm run build && npm pack",
+    "build:common": "npm run build && npm pack",
+    "build:all": "npm run build:schemas && npm run build:types && npm run build:common"
   },
   "keywords": [],
   "author": "GalYazdi",
   "license": "MIT",
-  "types": "./dist/index.d.ts",
-  "type": "commonjs",
   "devDependencies": {
     "tsup": "^8.5.0",
     "typescript": "^5.8.3"
   },
   "dependencies": {
-    "@faker-js/faker": "^9.8.0",
     "zod": "^3.25.57"
   }
 }
