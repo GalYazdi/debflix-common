@@ -1,5 +1,4 @@
 import { BaseEntity } from "./base";
-import { Category } from "./category";
 
 export interface Movie extends BaseEntity {
   title: string;
@@ -7,5 +6,5 @@ export interface Movie extends BaseEntity {
   director: string;
   rating: number;
   likes: number;
-  categories: Category[]
+  categories: string[]
 }
