@@ -4,7 +4,7 @@ import { moviesSchema } from "./moviesSchema";
 export const categoriesSchema = z
   .object({
     name: z.string(),
-    movies: z.array(moviesSchema).optional(),
+    movies: z.array(z.lazy(() => moviesSchema)).optional(),
   })
   .strict();
 

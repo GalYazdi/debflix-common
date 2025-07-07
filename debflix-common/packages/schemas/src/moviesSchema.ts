@@ -1,4 +1,5 @@
-import { z } from "zod";
+import { string, z } from "zod";
+import { categoriesSchema } from "./categoriesSchema";
 
 export const moviesSchema = z
   .object({
@@ -10,6 +11,9 @@ export const moviesSchema = z
       .min(1800)
       .max(new Date().getFullYear() + 5),
     director: z.string(),
+    rating: z.number().min(0),
+    likes: z.number().int().min(0),
+    categories: z.array(z.string())
   })
   .strict();
 
