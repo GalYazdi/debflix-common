@@ -3,6 +3,7 @@ import { Movie } from "./movie";
 
 export interface Actor extends BaseEntity {
   name: string;
+  gender: string;
   birthDate: Date;
   movies?: Movie[];
 }
