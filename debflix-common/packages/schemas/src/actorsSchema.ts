@@ -5,11 +5,7 @@ export const actorsSchema = z
   .object({
     firstName: z.string(),
     lastName: z.string(),
-    birthDate: z
-      .number()
-      .int()
-      .min(new Date("1900-01-01").getTime())
-      .max(Date.now()),
+    birthDate: z.coerce.date().min(new Date("1800-01-01")),
     movies: z.array(moviesSchema).optional(),
     gender: z.enum(["male", "female"]),
   })
