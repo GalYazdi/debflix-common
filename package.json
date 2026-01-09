@@ -1,0 +1,32 @@
+{
+  "name": "@debflix/monorepo",
+  "version": "1.0.0",
+  "description": "debflix library",
+  "exports": {
+    "./schemas": {
+      "import": "./dist/schemas/index.js",
+      "require": "./dist/schemas/index.js"
+    },
+    "./types": {
+      "import": "./dist/types/index.js",
+      "require": "./dist/types/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "build:schemas": "cd packages/schemas && npm install && npm run build && npm pack",
+    "build:types": "cd packages/types && npm install && npm run build && npm pack",
+    "build:common": "npm run build && npm pack",
+    "build:all": "npm run build:schemas && npm run build:types && npm run build:common"
+  },
+  "keywords": [],
+  "author": "GalYazdi",
+  "license": "MIT",
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "zod": "^4.1.1"
+  }
+}
